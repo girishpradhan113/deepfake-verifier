@@ -1,0 +1,15 @@
+torch>=2.1.0
+torchaudio>=2.1.0
+torchvision>=0.16.0
+transformers>=4.38.0
+timm>=0.9.16
+facenet-pytorch>=2.5.3
+librosa>=0.10.1
+opencv-python>=4.9.0.80
+Pillow>=10.2.0
+c2pa-python>=0.5.0
+fastapi>=0.110.0
+uvicorn>=0.27.1
+python-multipart>=0.0.9
+streamlit>=1.32.0
+matplotlib>=3.8.3

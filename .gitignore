@@ -1,0 +1,16 @@
+# Ignore virtual environment & temporary uploads
+venv/
+temp/
+deepfake-verifier/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.env
