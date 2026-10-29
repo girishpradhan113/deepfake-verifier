@@ -1,7 +1,6 @@
 # Ignore virtual environment & temporary uploads
 venv/
 temp/
-deepfake-verifier/
 
 # Ignore Python cache files
 __pycache__/
