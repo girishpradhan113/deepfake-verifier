@@ -6,7 +6,8 @@ from core.ingest import MediaIngestor
 from core.fusion import MultimodalFusionEngine
 from models.visual_detector import VisualForensicsDetector
 from models.audio_detector import AudioForensicsDetector
-
+from pydantic import BaseModel
+from models.text_detector import TextForensicsDetector
 app = FastAPI(title="Multimodal Deepfake & AI Voice Verification API")
 
 ingestor = MediaIngestor()
@@ -56,3 +57,17 @@ async def verify_media(file: UploadFile = File(...)):
         },
         "provenance": provenance
     }
+# Initialize the text detector globally alongside your other models
+text_detector = TextForensicsDetector()
+
+class TextInput(BaseModel):
+    text: str
+
+@app.post("/verify-text")
+async def verify_text(payload: TextInput):
+    """API endpoint to evaluate text paragraphs for AI generation."""
+    try:
+        result = text_detector.predict_text(payload.text)
+        return {"success": True, "text_analysis": result}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
